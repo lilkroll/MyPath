@@ -1,0 +1,65 @@
+﻿@model Post
+
+<style>
+    .header {
+       
+    }
+
+    input {
+        text-align: center;
+        width: 100%;
+        margin-top: 100px;
+        margin-left: auto;
+        border: 2px solid black; /* Параметры рамки */
+        width: 100%; /* Ширина */
+        margin-top: 3px;
+        border-radius: 20px;
+    }
+    h1 {
+        text-align: center;
+        width: 100%;
+    }
+
+    .btnstyle {
+        border: none;
+        border-radius: 15px;
+        padding: 8px 20px;
+        background: black;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        color: white;
+        float: right;
+        margin-bottom: 20px;
+    }
+
+        .btnstyle:hover {
+            background: gray;
+        }
+
+    textarea {
+        background: white; /* Цвет фона */
+        border: 2px solid black; /* Параметры рамки */
+        padding: 10px; /* Поля */
+        width: 100%; /* Ширина */
+        height: 200px; /* Высота */
+        box-sizing: border-box; /* Алгоритм расчёта ширины */
+        font-size: 14px; /* Размер шрифта */
+        margin-top: 3px;
+        border-radius: 20px;
+    }
+</style>
+<h1 > Create post </h1>
+<form method="post" asp-action="Create">
+    <div class="header">
+        <input asp-for="Header" autocomplete="off" placeholder="Header">
+    </div>
+    <div>
+        <textarea placeholder="Content" asp-for="Content">
+
+        </textarea>
+    </div>
+    <div>
+        <button type="submit" class="btnstyle"><i class="fa-solid fa-plus"></i> Post</button>
+    </div>
+</form>

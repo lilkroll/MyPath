@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Post>
+    <style type="text/css">
+        .btnstyle{
+            border: none;
+            border-radius: 15px;
+            padding: 8px 20px;
+            background: black;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: white;
+            float: right;
+            height:40px;
+        }
+            .btnstyle:hover {
+                background: gray;
+            }
+        .content{
+            padding: 10px;
+        }
+        .fullCard {
+            box-shadow: 1px 1px 5px 1px gray;
+            width: 100%; /* Ширина */
+            margin-top: 20px;
+            background-color:white;
+        }
+        body{
+            background-color: #f3f2f2;
+        }   
+        
+
+    </style>
+    <body>
+        <div>
+            <h2 style="text-align:center">Posts</h2>
+            <div>
+                <a name="run_script" asp-controller="Post" asp-action="Create" class="btn btnstyle">
+                    <i class="fa-solid fa-circle-plus"></i> Create post
+                </a>
+            </div>
+        </div>
+        <div style="margin-top:50px;">
+            @if (Model.Count() > 0)
+            {
+                @foreach (var obj in Model)
+                {
+                    <article class="fullCard btntop">
+                        <div class="content">
+                            <h2>@obj.Header</h2>
+                            <hr />
+                            <p>@obj.Content</p>
+                            <p>@obj.Date.ToString("d")</p>
+                        </div>
+                    </article>
+                }
+            }
+            else
+            {
+                <p>No Posts Exists</p>
+            }
+        </div>
+    </body>
