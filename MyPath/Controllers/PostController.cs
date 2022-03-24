@@ -38,5 +38,13 @@ namespace MyPath.Controllers
             return RedirectToAction("Index");
         }
 
+        //GET-DELETE
+        public IActionResult Delete(int? Id)
+        {
+            var obj = _db.Posts.Find(Id);
+            _db.Posts.Remove(obj);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }
